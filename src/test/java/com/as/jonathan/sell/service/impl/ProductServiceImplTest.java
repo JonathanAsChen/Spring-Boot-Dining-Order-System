@@ -1,3 +1,15 @@
+package com.as.jonathan.sell.service.impl;
+
+import com.as.jonathan.sell.dataObject.ProductInfo;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+
+import javax.transaction.Transactional;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
@@ -5,6 +17,38 @@ import static org.junit.jupiter.api.Assertions.*;
  * @version 1.0.0
  * @since 6/15/2020
  */
+@SpringBootTest
 class ProductServiceImplTest {
 
+
+	@Autowired
+	private ProductServiceImpl productService;
+
+	@Test
+	void findOne() {
+		assertEquals("1", productService.findOne("1").getProductId());
+	}
+
+	@Test
+	void findUpAll() {
+		List<ProductInfo> productInfoList = productService.findUpAll();
+		assertNotEquals(0, productInfoList.size());
+	}
+
+	@Test
+	void findAll() {
+		PageRequest request = PageRequest.of(1, 2);
+		Page<ProductInfo> productInfoPage = productService.findAll(request);
+//		System.out.println("number of element : " + productInfoPage.getTotalElements());
+		assertNotEquals(0, productInfoPage.getTotalElements());
+	}
+
+	@Test
+	@Transactional
+	void save() {
+		ProductInfo productInfo = productService.findOne("1");
+		productInfo.setProductId("111");
+		assertNotNull(productService.save(productInfo));
+
+	}
 }
