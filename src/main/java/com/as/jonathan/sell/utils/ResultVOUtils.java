@@ -12,7 +12,7 @@ public class ResultVOUtils {
 	public static ResultVO success(Object object) {
 		ResultVO resultVO = new ResultVO();
 		resultVO.setData(object);
-		resultVO.setMsg("success");
+		resultVO.setMessage("success");
 		resultVO.setCode(0);
 
 		return resultVO;
@@ -25,7 +25,7 @@ public class ResultVOUtils {
 	public static ResultVO error(Integer code, String msg) {
 		ResultVO resultVO = new ResultVO();
 		resultVO.setCode(code);
-		resultVO.setMsg(msg);
+		resultVO.setMessage(msg);
 		return resultVO;
 	}
 }

@@ -75,8 +75,9 @@ public class OrderServiceImpl implements OrderService {
 		OrderMaster orderMaster = new OrderMaster();
 
 		// sequence matters!
+		orderDTO.setOrderId(orderId);
 		BeanUtils.copyProperties(orderDTO, orderMaster);
-		orderMaster.setOrderId(orderId);
+//		orderMaster.setOrderId(orderId);
 		orderMaster.setOrderAmount(orderAmount);
 		orderMasterRepository.save(orderMaster);
 

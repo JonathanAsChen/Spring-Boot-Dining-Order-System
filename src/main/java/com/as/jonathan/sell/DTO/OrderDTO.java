@@ -3,6 +3,9 @@ package com.as.jonathan.sell.DTO;
 import com.as.jonathan.sell.dataObject.OrderDetail;
 import com.as.jonathan.sell.enums.OrderStatusEnum;
 import com.as.jonathan.sell.enums.PayStatusEnum;
+import com.as.jonathan.sell.utils.serializer.Data2LongSerializer;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import lombok.Data;
 
 import java.math.BigDecimal;
@@ -15,6 +18,8 @@ import java.util.List;
  * @since 6/16/2020
  */
 @Data
+//@JsonInclude(JsonInclude.Include.NON_NULL) // will not return null field
+//Implemented globally by modify configuration
 public class OrderDTO {
 
 	private String orderId;
@@ -34,8 +39,10 @@ public class OrderDTO {
 
 	private Integer payStatus = PayStatusEnum.WAIT.getCode();
 
+	@JsonSerialize(using = Data2LongSerializer.class)
 	private Date createTime;
 
+	@JsonSerialize(using = Data2LongSerializer.class)
 	private Date updateTime;
 
 	private List<OrderDetail> orderDetailList;

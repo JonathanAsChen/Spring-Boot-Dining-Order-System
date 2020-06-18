@@ -6,7 +6,9 @@ spring:
     url: jdbc:mysql://192.168.56.102/sell?characterEncoding=utf-8&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=America/Los_Angeles
   jpa:
     show-sql: true
-
+  jackson:
+    # Do not return null field to front end
+    default-property-inclusion: non_null
 
 server:
   servlet:

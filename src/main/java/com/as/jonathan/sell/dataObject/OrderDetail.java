@@ -33,7 +33,7 @@ public class OrderDetail {
 
 	private String productIcon;
 
-	private Date createTime;
-
-	private Date updateTime;
+//	private Date createTime;
+//
+//	private Date updateTime;
 }

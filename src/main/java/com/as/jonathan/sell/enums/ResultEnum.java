@@ -10,6 +10,8 @@ import lombok.Getter;
  */
 @Getter
 public enum ResultEnum {
+	PARAM_ERROR(1, "params not correct"),
+
 	PRODUCT_NOT_EXIST(10, "product not exist"),
 
 	PRODUCT_STOCK_ERROR(11, "short in stock"),
