@@ -5,6 +5,7 @@ import com.as.jonathan.sell.VO.ResultVO;
 import com.as.jonathan.sell.enums.ResultEnum;
 import com.as.jonathan.sell.exception.SellException;
 import com.as.jonathan.sell.form.OrderForm;
+import com.as.jonathan.sell.service.BuyerService;
 import com.as.jonathan.sell.service.OrderService;
 import com.as.jonathan.sell.utils.OrderForm2OrderDTOConverter;
 import com.as.jonathan.sell.utils.ResultVOUtils;
@@ -32,6 +33,9 @@ public class BuyerOrderController {
 
 	@Autowired
 	private OrderService orderService;
+
+	@Autowired
+	private BuyerService buyerService;
 
 	/**
 	 * Create order.
@@ -94,8 +98,9 @@ public class BuyerOrderController {
 	@GetMapping("/detail")
 	public ResultVO<OrderDTO> detail(@RequestParam("openid") String openid,
 									 @RequestParam("orderId") String orderId) {
-		//TODO: authorization
-		OrderDTO orderDTO = orderService.findone(orderId);
+
+		OrderDTO orderDTO = buyerService.findOrder(openid, orderId);
+
 		return ResultVOUtils.success(orderDTO);
 	}
 
@@ -103,9 +108,8 @@ public class BuyerOrderController {
 	@PostMapping("/cancel")
 	public ResultVO cancel(@RequestParam("openid") String openid,
 						   @RequestParam("orderId") String orderId) {
-		//TODO: authorization
-		orderService.cancel(orderService.findone(orderId));
 
+		buyerService.cancelOrder(openid, orderId);
 		return ResultVOUtils.success();
 	}
 }

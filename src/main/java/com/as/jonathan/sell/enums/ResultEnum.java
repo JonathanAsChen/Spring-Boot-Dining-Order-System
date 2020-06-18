@@ -28,6 +28,7 @@ public enum ResultEnum {
 
 	PAY_STATUS_ERROR(17, "already paid"),
 
+	ORDER_OWNER_ERROR(19, "Order does not belongs to current user"),
 
 	;
 
