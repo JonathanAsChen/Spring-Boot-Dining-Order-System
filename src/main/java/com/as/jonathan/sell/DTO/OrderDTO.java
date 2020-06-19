@@ -4,7 +4,6 @@ import com.as.jonathan.sell.dataObject.OrderDetail;
 import com.as.jonathan.sell.enums.OrderStatusEnum;
 import com.as.jonathan.sell.enums.PayStatusEnum;
 import com.as.jonathan.sell.utils.serializer.Data2LongSerializer;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import lombok.Data;
 

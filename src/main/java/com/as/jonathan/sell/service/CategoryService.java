@@ -1,7 +1,6 @@
 package com.as.jonathan.sell.service;
 
 import com.as.jonathan.sell.dataObject.ProductCategory;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 

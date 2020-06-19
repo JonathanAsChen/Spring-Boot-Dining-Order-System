@@ -2,7 +2,6 @@ package com.as.jonathan.sell.form;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
-import lombok.Getter;
 
 import javax.validation.constraints.NotEmpty;
 

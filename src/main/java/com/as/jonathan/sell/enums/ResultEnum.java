@@ -30,6 +30,10 @@ public enum ResultEnum {
 
 	ORDER_OWNER_ERROR(19, "Order does not belongs to current user"),
 
+	WECHAT_MP_ERROR(20, "Wechat MP error"),
+
+	WECHAT_PAY_MONEY_VERIFY_ERROR(21, "Order amount mismatched"),
+
 	;
 
 

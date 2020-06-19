@@ -12,6 +12,7 @@ import com.as.jonathan.sell.exception.SellException;
 import com.as.jonathan.sell.repository.OrderDetailRepository;
 import com.as.jonathan.sell.repository.OrderMasterRepository;
 import com.as.jonathan.sell.service.OrderService;
+import com.as.jonathan.sell.service.PayService;
 import com.as.jonathan.sell.service.ProductService;
 import com.as.jonathan.sell.utils.KeyUtil;
 import com.as.jonathan.sell.utils.OrderDTO2OrderMasterConverter;
@@ -40,6 +41,9 @@ public class OrderServiceImpl implements OrderService {
 
 	@Autowired
 	private ProductService productService;
+
+	@Autowired
+	private PayService payService;
 
 	@Autowired
 	private OrderDetailRepository orderDetailRepository;
@@ -151,7 +155,7 @@ public class OrderServiceImpl implements OrderService {
 
 		// process refund if paid
 		if (orderMaster.getPayStatus().equals(PayStatusEnum.SUCCESS.getCode())) {
-			// TODO: refund
+			payService.refund(orderDTO);
 		}
 
 		return orderDTO;

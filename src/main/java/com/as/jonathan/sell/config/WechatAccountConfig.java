@@ -14,5 +14,17 @@ import org.springframework.stereotype.Component;
 @ConfigurationProperties(prefix = "wechat")
 public class WechatAccountConfig {
 
+	private String mpAppId;
 
+	private String mpAppSecret;
+
+	//商户id
+	private String mchId;
+
+	private String mchKey;
+
+	private String keyPath;
+
+	// wechat pay async notify url
+	private String notifyUrl;
 }
