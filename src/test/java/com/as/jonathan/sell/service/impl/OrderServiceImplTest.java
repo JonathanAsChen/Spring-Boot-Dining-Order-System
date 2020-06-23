@@ -56,7 +56,7 @@ class OrderServiceImplTest {
 
 	@Test
 	void findone() {
-		OrderDTO result = orderService.findone(ORDER_ID);
+		OrderDTO result = orderService.findOne(ORDER_ID);
 		log.info("[find one order] result = {}", result);
 		assertEquals(ORDER_ID, result.getOrderId());
 	}
@@ -71,7 +71,7 @@ class OrderServiceImplTest {
 	@Test
 	@Transactional
 	void cancel() {
-		OrderDTO orderDTO = orderService.findone(ORDER_ID);
+		OrderDTO orderDTO = orderService.findOne(ORDER_ID);
 		OrderDTO result = orderService.cancel(orderDTO);
 		assertEquals(OrderStatusEnum.CANCEL.getCode(), result.getOrderStatus());
 	}
@@ -79,7 +79,7 @@ class OrderServiceImplTest {
 	@Test
 	@Transactional
 	void finish() {
-		OrderDTO orderDTO = orderService.findone(ORDER_ID);
+		OrderDTO orderDTO = orderService.findOne(ORDER_ID);
 		OrderDTO result = orderService.finish(orderDTO);
 		assertEquals(OrderStatusEnum.FINISHED.getCode(), result.getOrderStatus());
 	}
@@ -87,8 +87,17 @@ class OrderServiceImplTest {
 	@Test
 	@Transactional
 	void paid() {
-		OrderDTO orderDTO = orderService.findone(ORDER_ID);
+		OrderDTO orderDTO = orderService.findOne(ORDER_ID);
 		OrderDTO result = orderService.paid(orderDTO);
 		assertEquals(PayStatusEnum.SUCCESS.getCode(), result.getPayStatus());
+	}
+
+	@Test
+	public void list() {
+		PageRequest request = PageRequest.of(0, 2);
+		Page<OrderDTO> orderDTOPage = orderService.findList(request);
+		assertNotEquals(0, orderDTOPage.getTotalElements());
+		assertTrue(orderDTOPage.getTotalElements() > 0, "find all the orders");
+
 	}
 }

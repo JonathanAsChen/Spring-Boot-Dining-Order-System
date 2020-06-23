@@ -30,6 +30,8 @@ public interface ProductService {
 
 	void decreaseStock(List<CartDTO> cartDTOList);
 
+	ProductInfo shelve(String productId);
 
+	ProductInfo unshelve(String productId);
 
 }

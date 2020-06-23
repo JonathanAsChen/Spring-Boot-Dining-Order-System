@@ -3,7 +3,8 @@ package com.as.jonathan.sell.DTO;
 import com.as.jonathan.sell.dataObject.OrderDetail;
 import com.as.jonathan.sell.enums.OrderStatusEnum;
 import com.as.jonathan.sell.enums.PayStatusEnum;
-import com.as.jonathan.sell.utils.serializer.Data2LongSerializer;
+import com.as.jonathan.sell.utils.EnumUtil;
+import com.as.jonathan.sell.utils.serializer.Date2LongSerializer;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import lombok.Data;
 
@@ -38,11 +39,19 @@ public class OrderDTO {
 
 	private Integer payStatus = PayStatusEnum.WAIT.getCode();
 
-	@JsonSerialize(using = Data2LongSerializer.class)
+	@JsonSerialize(using = Date2LongSerializer.class)
 	private Date createTime;
 
-	@JsonSerialize(using = Data2LongSerializer.class)
+	@JsonSerialize(using = Date2LongSerializer.class)
 	private Date updateTime;
 
 	private List<OrderDetail> orderDetailList;
+
+	public OrderStatusEnum getOrderStatusEnum() {
+		return EnumUtil.getEnumByCode(orderStatus, OrderStatusEnum.class);
+	}
+
+	public PayStatusEnum getPayStatusEnum() {
+		return EnumUtil.getEnumByCode(payStatus, PayStatusEnum.class);
+	}
 }

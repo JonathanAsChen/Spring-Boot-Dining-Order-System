@@ -34,7 +34,7 @@ public class BuyerServiceImpl implements BuyerService {
 
 	private OrderDTO checkOrderOwner(String openid, String orderId) {
 		//Authorization
-		OrderDTO orderDTO = orderService.findone(orderId);
+		OrderDTO orderDTO = orderService.findOne(orderId);
 		if(!orderDTO.getBuyerOpenid().equals(openid)) {
 			log.error("[Order detail] Order does not belong to the user.");
 			throw new SellException(ResultEnum.ORDER_OWNER_ERROR);

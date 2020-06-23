@@ -32,7 +32,7 @@ public class PayController {
 							   Map<String, Object> map) {
 
 		//find order
-		OrderDTO orderDTO = orderService.findone(orderId);
+		OrderDTO orderDTO = orderService.findOne(orderId);
 
 		//create pay
 		PayResponse payResponse = payService.create(orderDTO);

@@ -96,7 +96,7 @@ public class OrderServiceImpl implements OrderService {
 	}
 
 	@Override
-	public OrderDTO findone(String orderId) {
+	public OrderDTO findOne(String orderId) {
 		OrderMaster orderMaster = orderMasterRepository.findById(orderId).orElse(null);
 		if (orderMaster == null) {
 			throw new SellException(ResultEnum.ORDER_NOT_EXIST);
@@ -118,6 +118,13 @@ public class OrderServiceImpl implements OrderService {
 
 		List<OrderDTO> orderDTOList = OrderMaster2OrderDTOConverter.convert(orderMasterPage.getContent());
 
+		return new PageImpl<>(orderDTOList, pageable, orderMasterPage.getTotalElements());
+	}
+
+	@Override
+	public Page<OrderDTO> findList(Pageable pageable) {
+		Page<OrderMaster> orderMasterPage = orderMasterRepository.findAll(pageable);
+		List<OrderDTO> orderDTOList = OrderMaster2OrderDTOConverter.convert(orderMasterPage.getContent());
 		return new PageImpl<>(orderDTOList, pageable, orderMasterPage.getTotalElements());
 	}
 
@@ -210,5 +217,7 @@ public class OrderServiceImpl implements OrderService {
 
 		return orderDTO;
 	}
+
+
 
 }

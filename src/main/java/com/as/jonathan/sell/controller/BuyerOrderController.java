@@ -56,7 +56,7 @@ public class BuyerOrderController {
 
 		OrderDTO orderDTO = OrderForm2OrderDTOConverter.convert(orderForm);
 		if (orderDTO.getOrderDetailList().isEmpty()) {
-			//TODO: transfer this exception to sevice layer
+			//TODO: transfer this exception to service layer
 			log.error("[Create Order] Cart cannot be empty");
 			throw new SellException(ResultEnum.ORDER_DETAIL_EMPTY);
 			}
@@ -73,7 +73,7 @@ public class BuyerOrderController {
 	//list order
 	@GetMapping("/list")
 	public ResultVO<List<OrderDTO>> list(@RequestParam("openid") String openid,
-										 @RequestParam(value = "page", defaultValue = "0") Integer page,
+										 @RequestParam(value = "page", defaultValue = "1") Integer page,
 										 @RequestParam(value = "size", defaultValue = "10") Integer size) {
 
 		if (openid.isEmpty()) {
@@ -81,7 +81,7 @@ public class BuyerOrderController {
 			throw new SellException(ResultEnum.PARAM_ERROR);
 		}
 
-		PageRequest request = PageRequest.of(page, size);
+		PageRequest request = PageRequest.of(page - 1, size);
 		Page<OrderDTO> orderDTOPage = orderService.findList(openid, request);
 
 

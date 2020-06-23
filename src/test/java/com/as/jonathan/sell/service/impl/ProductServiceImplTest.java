@@ -1,6 +1,7 @@
 package com.as.jonathan.sell.service.impl;
 
 import com.as.jonathan.sell.dataObject.ProductInfo;
+import com.as.jonathan.sell.enums.ProductStatusEnum;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -51,4 +52,17 @@ class ProductServiceImplTest {
 		assertNotNull(productService.save(productInfo));
 
 	}
+
+	@Test
+	void shelve() {
+		ProductInfo productInfo = productService.shelve("1");
+		assertEquals(ProductStatusEnum.UP.getCode(), productInfo.getProductStatus());
+	}
+
+	@Test
+	void unshelve() {
+		ProductInfo productInfo = productService.unshelve("1");
+		assertEquals(ProductStatusEnum.DOWN.getCode(), productInfo.getProductStatus());
+	}
+
 }

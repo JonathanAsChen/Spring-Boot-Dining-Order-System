@@ -25,13 +25,13 @@ class PayServiceImplTest {
 
 	@Test
 	void create() {
-		OrderDTO orderDTO = orderService.findone("1592368958190915162");
+		OrderDTO orderDTO = orderService.findOne("1592368958190915162");
 		payService.create(orderDTO);
 	}
 
 	@Test
 	void refund() {
-		OrderDTO orderDTO = orderService.findone("1592368958190915162");
+		OrderDTO orderDTO = orderService.findOne("1592368958190915162");
 		payService.refund(orderDTO);
 	}
 }

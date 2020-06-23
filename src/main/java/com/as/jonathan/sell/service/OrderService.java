@@ -15,10 +15,14 @@ public interface OrderService {
 	OrderDTO create(OrderDTO orderDTO);
 
 	/* find one order*/
-	OrderDTO findone(String orderId);
+	OrderDTO findOne(String orderId);
 
-	/* find order page list*/
+	/* find order page list by buyer openid*/
 	Page<OrderDTO> findList(String buyeropenid, Pageable pageable);
+
+	/* find order page list of all users*/
+	Page<OrderDTO> findList(Pageable pageable);
+
 
 	/* cancel order*/
 	OrderDTO cancel(OrderDTO orderDTO);

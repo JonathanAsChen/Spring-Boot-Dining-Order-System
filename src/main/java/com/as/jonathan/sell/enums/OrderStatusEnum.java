@@ -8,7 +8,7 @@ import lombok.Getter;
  * @since 6/16/2020
  */
 @Getter
-public enum OrderStatusEnum {
+public enum OrderStatusEnum implements CodeEnum<Integer> {
 	NEW(0, "new order"),
 	FINISHED(1, "complete"),
 	CANCEL(2, "canceled"),

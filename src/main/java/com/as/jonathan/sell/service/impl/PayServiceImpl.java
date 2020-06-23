@@ -57,7 +57,7 @@ public class PayServiceImpl implements PayService {
 
 
 
-		OrderDTO orderDTO = orderService.findone(payResponse.getOrderId());
+		OrderDTO orderDTO = orderService.findOne(payResponse.getOrderId());
 		// paid amount (0.10 vs 0.1 problem)
 		if (!MathUtil.equals(payResponse.getOrderAmount(), orderDTO.getOrderAmount().doubleValue())) {
 			log.error("[Wechat pay] async notification. Order amount mismatched. orderId={}, notified amount={}, system amount={}",

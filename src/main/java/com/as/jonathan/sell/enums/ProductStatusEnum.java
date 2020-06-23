@@ -9,9 +9,9 @@ import lombok.Getter;
  * @since 6/15/2020
  */
 @Getter
-public enum ProductStatusEnum {
-	UP(0, "on sell"),
-	DOWN(0, "sold out");
+public enum ProductStatusEnum implements CodeEnum {
+	UP(0, "on shelf"),
+	DOWN(1, "off shelf");
 
 	private Integer code;
 	private String message;

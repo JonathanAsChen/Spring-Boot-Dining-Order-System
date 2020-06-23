@@ -10,6 +10,8 @@ import lombok.Getter;
  */
 @Getter
 public enum ResultEnum {
+	SUCCESS(0, "Success"),
+
 	PARAM_ERROR(1, "params not correct"),
 
 	PRODUCT_NOT_EXIST(10, "product not exist"),
@@ -33,6 +35,12 @@ public enum ResultEnum {
 	WECHAT_MP_ERROR(20, "Wechat MP error"),
 
 	WECHAT_PAY_MONEY_VERIFY_ERROR(21, "Order amount mismatched"),
+
+	ORDER_CANCEL_SUCCESS(22, "Order Cancelled!"),
+
+	ORDER_FINISH_SUCCESS(23, "Order Completed!"),
+
+	PRODUCT_STATUS_ERROR(24, "Product status not correct.")
 
 	;
 

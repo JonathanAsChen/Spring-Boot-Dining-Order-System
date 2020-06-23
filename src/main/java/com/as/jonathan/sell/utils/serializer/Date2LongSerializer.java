@@ -12,7 +12,7 @@ import java.util.Date;
  * @version 1.0.0
  * @since 6/17/2020
  */
-public class Data2LongSerializer extends JsonSerializer<Date> {
+public class Date2LongSerializer extends JsonSerializer<Date> {
 	@Override
 	public void serialize(Date date, JsonGenerator jsonGenerator, SerializerProvider serializerProvider) throws IOException {
 		jsonGenerator.writeNumber(date.getTime() / 1000);

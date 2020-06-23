@@ -1,12 +1,8 @@
-package com.as.jonathan.sell.dataObject;
+package com.as.jonathan.sell.form;
 
 import com.as.jonathan.sell.enums.ProductStatusEnum;
-import com.as.jonathan.sell.utils.EnumUtil;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
-import org.hibernate.annotations.DynamicUpdate;
 
-import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.math.BigDecimal;
 import java.util.Date;
@@ -14,14 +10,11 @@ import java.util.Date;
 /**
  * @author Yifan Chen
  * @version 1.0.0
- * @since 6/15/2020
+ * @since 6/22/2020 9:02 PM
  */
-@Entity
-@DynamicUpdate
 @Data
-public class ProductInfo {
+public class ProductForm {
 
-	@Id
 	private String productId;
 
 	private String productName;
@@ -40,10 +33,6 @@ public class ProductInfo {
 	private Integer categoryType;
 
 	private Date createTime;
-	private Date updateTime;
 
-	@JsonIgnore
-	public ProductStatusEnum getProductStatusEnum() {
-		return EnumUtil.getEnumByCode(productStatus, ProductStatusEnum.class);
-	}
+	private Date updateTime;
 }

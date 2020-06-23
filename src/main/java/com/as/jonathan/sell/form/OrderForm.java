@@ -36,7 +36,7 @@ public class OrderForm {
 	/**
 	 * Buyer address
 	 */
-	@NotEmpty(message = "Address requried")
+	@NotEmpty(message = "Address required")
 	@JsonProperty("address")
 	private String buyerAddress;
 
