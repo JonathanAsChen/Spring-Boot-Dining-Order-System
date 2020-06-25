@@ -9,6 +9,10 @@ spring:
   jackson:
     # Do not return null field to front end
     default-property-inclusion: non_null
+  redis:
+    host: 192.168.56.102
+    port: 6379
+    password:
 
 
 server:
@@ -24,3 +28,11 @@ wechat:
   mchKey: c976503d34ca432c601361f979fd8d85
   keyPath: TBD
   notifyUrl: http://xxx.com/sell/pay/notify
+  openAppId: wxd898fcb01713c658
+  openAppSecret: 29d8a650db31472aa87800e3b0d739f2
+
+project:
+  url:
+    wechatMpAuthorize: xxx.com
+    wechatOpenAuthorize: xxx.com
+    sell: xxx.com

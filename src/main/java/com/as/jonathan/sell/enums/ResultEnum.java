@@ -14,6 +14,8 @@ public enum ResultEnum {
 
 	PARAM_ERROR(1, "params not correct"),
 
+	ENCODE_ERROR(2, "encode error"),
+
 	PRODUCT_NOT_EXIST(10, "product not exist"),
 
 	PRODUCT_STOCK_ERROR(11, "short in stock"),
@@ -40,7 +42,11 @@ public enum ResultEnum {
 
 	ORDER_FINISH_SUCCESS(23, "Order Completed!"),
 
-	PRODUCT_STATUS_ERROR(24, "Product status not correct.")
+	PRODUCT_STATUS_ERROR(24, "Product status not correct."),
+
+	LOGIN_FAIL(25, "Login failed. User not matched."),
+
+	LOGOUT(26, "LOGGED OUT!"),
 
 	;
 

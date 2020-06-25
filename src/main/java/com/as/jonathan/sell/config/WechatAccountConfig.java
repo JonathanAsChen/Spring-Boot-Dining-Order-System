@@ -27,4 +27,9 @@ public class WechatAccountConfig {
 
 	// wechat pay async notify url
 	private String notifyUrl;
+
+
+	private String openAppId;
+
+	private String openAppSecret;
 }

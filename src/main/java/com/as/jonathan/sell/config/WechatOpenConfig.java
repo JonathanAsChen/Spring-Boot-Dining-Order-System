@@ -11,27 +11,25 @@ import org.springframework.stereotype.Component;
 /**
  * @author Yifan Chen
  * @version 1.0.0
- * @since 6/18/2020
+ * @since 6/23/2020 10:23 AM
  */
 @Component
-
-public class WechatMpConfig {
-
+public class WechatOpenConfig {
 	@Autowired
 	private WechatAccountConfig accountConfig;
 
 	@Bean
-	public WxMpService wxMpService() {
-		WxMpService wxMpService = new WxMpServiceImpl();
-		wxMpService.setWxMpConfigStorage(wxMpConfigStorage());
-		return wxMpService;
+	public WxMpService wxOpenService() {
+		WxMpService wxOpenService = new WxMpServiceImpl();
+		wxOpenService.setWxMpConfigStorage(wxOpenConfigStorage());
+		return wxOpenService;
 	}
 
 
-	public WxMpConfigStorage wxMpConfigStorage() {
+	public WxMpConfigStorage wxOpenConfigStorage() {
 		WxMpDefaultConfigImpl wxMpDefaultConfig = new WxMpDefaultConfigImpl();
-		wxMpDefaultConfig.setAppId(accountConfig.getMpAppId());
-		wxMpDefaultConfig.setSecret(accountConfig.getMpAppSecret());
+		wxMpDefaultConfig.setAppId(accountConfig.getOpenAppId());
+		wxMpDefaultConfig.setSecret(accountConfig.getOpenAppSecret());
 		return wxMpDefaultConfig;
 	}
 }
