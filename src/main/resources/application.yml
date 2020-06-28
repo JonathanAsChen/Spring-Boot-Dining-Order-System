@@ -36,3 +36,10 @@ project:
     wechatMpAuthorize: xxx.com
     wechatOpenAuthorize: xxx.com
     sell: xxx.com
+
+logging:
+  level:
+    com.as.jonathan.sell.dataObject.mapper: trace
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml

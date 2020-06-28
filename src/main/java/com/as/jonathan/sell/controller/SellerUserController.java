@@ -80,6 +80,7 @@ public class SellerUserController {
 		return new ModelAndView("common/success");
 	}
 
-	@GetMapping("/loginPage")
+//	@GetMapping("/loginPage")
+
 
 }
