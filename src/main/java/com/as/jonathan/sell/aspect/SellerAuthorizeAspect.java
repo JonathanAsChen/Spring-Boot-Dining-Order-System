@@ -50,7 +50,7 @@ public class SellerAuthorizeAspect {
 		//find token in redis
 		String tokenValue = redisTemplate.opsForValue().get(String.format(RedisConstant.TKOEN_PREFIX, cookie.getValue()));
 		if (StringUtils.isEmpty(tokenValue)) {
-			log.warn("[Authentication] cannot fine token from redis");
+			log.warn("[Authentication] cannot find token from redis");
 			throw new SellerAuthorizeExcption();
 		}
 
